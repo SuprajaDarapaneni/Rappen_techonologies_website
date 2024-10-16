@@ -1,0 +1,15 @@
+{
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[javascriptreact]": {
+        "editor.formatOnSave": true
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit"
+    },
+    "eslint.alwaysShowStatus": true
+}

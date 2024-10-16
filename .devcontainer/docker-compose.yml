@@ -1,0 +1,59 @@
+
+version: '1'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # [Choice] Node.js version: 14, 12, 10
+        - VARIANT=18-alpine3.16
+        # On Linux, you may need to update USER_UID and USER_GID below if not your local UID is not 1000.
+        # - USER_UID=1000
+        # - USER_GID=1000
+    volumes:
+      - ..:/workspace:cached
+
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
+
+    # Runs app on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
+    # network_mode: service:db
+
+    # Uncomment the next line to use a non-root user for all processes.
+    user: node
+
+    # Use "forwardPorts" in **devcontainer.json** to forward an app port locally.
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
+
+  # db:
+  #   image: mysql:latest
+  #   restart: unless-stopped
+  #   volumes:
+  #     # - ../_data:/docker-entrypoint-initdb.d
+  #     - mysql-data:/var/lib/mysql
+  #   environment:
+  #     MYSQL_DATABASE: Inventery
+  #     MYSQL_ROOT_PASSWORD: jaswanth
+  #     TZ: Asia/Kolkata
+
+    # Add "forwardPorts": ["5432"] to **devcontainer.json** to forward PostgreSQL locally.
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
+
+  # To explore database we can use dbgate instead of mysql workbench
+  # db:
+  #   image: dbgate/dbgate
+  #   restart: always
+  #   network_mode: service:db
+  #   environment:
+  #     CONNECTIONS: con1
+  #     LABEL_con1: MySql Dev
+  #     SERVER_con1: localhost
+  #     USER_con1: root
+  #     PASSWORD_con1: sunjewels
+  #     PORT_con1: 3306
+  #     ENGINE_con1: mysql@dbgate-plugin-mysql
+
+# volumes:
+#   mysql-data:
