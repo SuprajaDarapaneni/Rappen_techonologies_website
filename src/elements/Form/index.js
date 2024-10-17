@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 
 export const Form = (props) => {
   const {
-    name, value, type, placeholder, className, errorResponse,
+    name, value, type, placeholder, className, errorResponse, disabled,
   } = props;
 
   const [hasError, setHasError] = useState(null);
@@ -49,6 +49,7 @@ export const Form = (props) => {
         name={name}
         placeholder={placeholder}
         value={value}
+        disabled={disabled}
         className={[
           'w-95 sm:w-192 lg:w-192.5 xl:w-192.5 p-4 mx-2 mb-6 font-light text-lg text-theme-blue rounded border border-gray-400 focus:outline-none focus:ring-1 focus:ring-theme-purple',
           className,
@@ -67,6 +68,7 @@ export const Form = (props) => {
           name={name}
           type={type}
           placeholder={placeholder}
+          disabled={disabled}
           pattern={pattern}
           value={value}
           className={[
@@ -91,6 +93,7 @@ export const Form = (props) => {
         name={name}
         type={type}
         placeholder={placeholder}
+        disabled={disabled}
         value={value}
         className={[
           'p-4 font-light text-lg text-theme-blue rounded border border-gray-400 focus:outline-none focus:ring-1 focus:ring-theme-purple',
@@ -121,6 +124,7 @@ Form.propTypes = {
   onChange: PropTypes.func.isRequired,
   type: PropTypes.string,
   placeholder: PropTypes.string,
+  disabled: PropTypes.bool.isRequired,
   className: PropTypes.string,
   errorResponse: PropTypes.string,
 };

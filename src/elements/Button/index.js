@@ -14,6 +14,7 @@ export default function Button({
   href = '',
   className = '',
   style = {},
+  disabled = false,
   target = '',
   children = null,
 }) {
@@ -52,6 +53,7 @@ export default function Button({
     <button
       className={className}
       type={type}
+      disabled={disabled}
       style={style}
       onClick={onClickHandler}
     >
@@ -66,6 +68,7 @@ Button.propTypes = {
   href: PropTypes.string,
   onClick: PropTypes.func,
   target: PropTypes.string,
+  disabled: PropTypes.bool,
   // eslint-disable-next-line react/forbid-prop-types
   style: PropTypes.object,
   children: PropTypes.node, // Accept any renderable content

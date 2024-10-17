@@ -6,7 +6,7 @@
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Fade } from 'react-awesome-reveal';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -20,6 +20,7 @@ import axios from 'axios';
 
 export const DiscussForm = (actions) => {
   const { data, resetForm } = actions;
+  const [loading, setLoading] = useState(false);
   const submitEmail = () => {
     const {
       name, company, email, phone, projectIdea,
@@ -32,15 +33,19 @@ export const DiscussForm = (actions) => {
       && phone !== ''
       && projectIdea !== ''
     ) {
+      setLoading(true);
       axios.post(process.env.REACT_APP_ORGANIZATION_API_URL_EMAIL_SERVICE, data)
         .then(() => {
           toast.success('Success! we\'\ll get back to you soon. Thank you!');
           resetForm();
         }, (error) => {
           toast.error(error);
+        }).finally(() => {
+          setLoading(false);
         });
     } else {
       toast.error('Please fill out the missing details.');
+      setLoading(false);
     }
   };
 
@@ -66,6 +71,7 @@ export const DiscussForm = (actions) => {
               name="name"
               type="text"
               value={data.name}
+              disabled={loading}
               placeholder="Your name"
               className=""
               onChange={actions.onChange}
@@ -75,6 +81,7 @@ export const DiscussForm = (actions) => {
               name="company"
               type="text"
               value={data.company}
+              disabled={loading}
               placeholder="Your company"
               className=""
               onChange={actions.onChange}
@@ -87,6 +94,7 @@ export const DiscussForm = (actions) => {
               name="email"
               type="email"
               value={data.email}
+              disabled={loading}
               placeholder="Your email address"
               className=""
               onChange={actions.onChange}
@@ -95,6 +103,7 @@ export const DiscussForm = (actions) => {
               id="phone"
               name="phone"
               type="tel"
+              disabled={loading}
               value={data.phone}
               placeholder="Your contact number"
               className=""
@@ -106,6 +115,7 @@ export const DiscussForm = (actions) => {
             <Form
               id="projectIdea"
               name="projectIdea"
+              disabled={loading}
               type="textarea"
               value={data.projectIdea}
               placeholder="Explain about your project idea"
@@ -116,9 +126,10 @@ export const DiscussForm = (actions) => {
           <Button
             className="text-xl mx-auto px-12 py-3 mt-5 bg-theme-purple text-white rounded-full border-2 border-theme-purple hover:bg-dark-theme-purple border-purple-800 transition duration-200 focus:outline-none"
             type="button"
+            disabled={loading}
             onClick={submitEmail}
           >
-            Submit
+            {loading ? 'Submitting...' : 'Submit'}
           </Button>
         </div>
       </Fade>
