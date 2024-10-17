@@ -128,21 +128,25 @@ export const Portfolios = [
 
 export const Advantages = [
   [{
+    id: 1,
     title: 'Effective Communication',
     description: 'At RapenTechnologies, we ensure clear and consistent communication throughout your project, keeping you informed every step of the way.',
     imageUrl: Communicative,
   },
   {
+    id: 2,
     title: 'Expert Project Management',
     description: 'Our experienced project managers meticulously plan and execute each project to ensure timely and successful completion.',
     imageUrl: Management,
   }],
   [{
+    id: 3,
     title: 'Collaborative Teamwork',
     description: 'Our collaborative approach ensures that our team works seamlessly together to deliver the best results for your project.',
     imageUrl: Collaborative,
   },
   {
+    id: 4,
     title: 'Client Satisfaction',
     description: 'With a proven track record of successful projects and satisfied clients, RapenTechnologies is the trusted choice for businesses looking to grow and succeed.',
     imageUrl: Favorite,

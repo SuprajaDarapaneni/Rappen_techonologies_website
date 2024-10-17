@@ -10,7 +10,7 @@ import Fade from 'react-awesome-reveal';
 
 export default function Advantage({ data }) {
   return (
-    <div className="bg-gray-50 py-20 mb-24 sm:mb-18 xl:mb-16">
+    <div className="bg-gray-50 py-20 mb-24 sm:mb-18 xl:mb-16 hidden lg:block">
       <div className="container mx-auto">
         <Fade bottom triggerOnce>
           <h1 className="text-5xl text-theme-blue text-center  font-bold">Why Choose {process.env.REACT_APP_ORGANIZATION_NAME} for Your Projects</h1>
@@ -23,7 +23,7 @@ export default function Advantage({ data }) {
           <div className="flex-col">
             {
               data[0].map((item, index) => (
-                <Fade bottom triggerOnce delay={500 * index} key={index}>
+                <Fade bottom triggerOnce delay={500 * index} key={item.id}>
                   <div>
                     <div className="bg-white flex flex-row items-center p-3 my-6 mx-3 sm:my-7 sm:mx-3 xl:my-14 xl:mx-7 rounded-2xl shadow-xl border border-light-theme-purple transform transition duration-500 hover:scale-105">
                       <img src={item.imageUrl} alt="" className="w-1/3" />

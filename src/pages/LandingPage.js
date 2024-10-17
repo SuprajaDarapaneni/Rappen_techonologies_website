@@ -2,7 +2,7 @@
 /* eslint-disable import/extensions */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/jsx-filename-extension */
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 
 import {
   Services, Portfolios, Advantages,
@@ -17,25 +17,25 @@ import Advantage from 'parts/Advantage';
 import Discuss from 'parts/Discuss';
 import Footer from 'parts/Footer';
 
-export default class LandingPage extends Component {
-  componentDidMount() {
+const LandingPage = () => {
+  useEffect(() => {
     window.scrollTo(0, 0);
-  }
+  }, []); // Runs only once when the component mounts
 
-  render() {
-    return (
-      <>
-        <div className="grid">
-          <Header />
-          <Hero />
-          <Service data={Services} />
-          <Portfolio data={Portfolios} />
-          <Advantage data={Advantages} />
-          {/* <Testimonial data={Testimonials} /> */}
-          <Discuss />
-          <Footer />
-        </div>
-      </>
-    );
-  }
-}
+  return (
+    <div style={{ display: 'grid' }}>
+      <Header />
+      <Hero />
+      <Service data={Services} />
+      <Portfolio data={Portfolios} />
+      <Advantage data={Advantages} />
+      {/* <Testimonial data={Testimonials} /> */}
+      <Discuss />
+      <Footer />
+    </div>
+  );
+};
+export default LandingPage;
+
+
+

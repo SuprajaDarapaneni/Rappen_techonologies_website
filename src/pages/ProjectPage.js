@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/jsx-filename-extension */
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 
 import Header from 'parts/Header';
 import HeroPortfolio from 'parts/HeroPortfolio';
@@ -12,20 +12,18 @@ import AllPortfolio from 'parts/AllPortfolio';
 
 import { Portfolios } from 'json/landingPageData';
 
-export default class ProjectPage extends Component {
-  componentDidMount() {
+const ProjectPage = () => {
+  useEffect(() => {
     window.scrollTo(0, 0);
-  }
-
-  render() {
-    return (
-      <>
-        <Header />
-        <HeroPortfolio />
-        <AllPortfolio data={Portfolios} />
-        <Discuss />
-        <Footer />
-      </>
-    );
-  }
-}
+  }, []);
+  return (
+    <>
+      <Header />
+      <HeroPortfolio />
+      <AllPortfolio data={Portfolios} />
+      <Discuss />
+      <Footer />
+    </>
+  );
+};
+export default ProjectPage;
