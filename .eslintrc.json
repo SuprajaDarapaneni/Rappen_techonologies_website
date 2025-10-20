@@ -1,14 +1,9 @@
-// .eslintrc.json
 {
   "env": {
     "browser": true,
     "es2021": true
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "airbnb"
-  ],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "airbnb"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -16,22 +11,14 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": [
-    "react"
-  ],
+  "plugins": ["react"],
   "rules": {
     "arrow-body-style": "off",
-    "semi": [
-      "error",
-      "always"
-    ],
+    "semi": ["error", "always"],
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
+        "extensions": [".js", ".jsx"]
       }
     ],
     "import/extensions": [
@@ -55,10 +42,15 @@
     "no-multi-spaces": "off",
     "jsx-a11y/control-has-associated-label": "off",
     "no-trailing-spaces": "off",
-    "react/jsx-indent": "off",
-    "react/jsx-props-no-multi-spaces": "off",
     "react/jsx-closing-tag-location": "off",
     "quotes": "off",
-    "react/jsx-one-expression-per-line": "off"
+    "react/jsx-one-expression-per-line": "off",
+
+    // NEW INDENTATION SETTINGS
+    "react/jsx-indent": ["error", 2], // Enforces 2 spaces indentation for JSX
+    "react/jsx-indent-props": ["error", "first"] // Align props with the first prop (you can use "multiline" if you prefer)
+
+    // Disable prop indentation rule (if you want no rules on prop indentation)
+    // "react/jsx-indent-props": "off"
   }
 }
