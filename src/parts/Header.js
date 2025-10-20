@@ -58,6 +58,24 @@ export default function Header() {
             Project
           </Button>
         </li>
+        <li className="py-2 lg:py-0">
+          <Button
+            className={`${path === '/placement' ? 'active-link' : ''} font-medium text-lg px-5 no-underline hover:underline`}
+            type="link"
+            href="/placement"
+          >
+            Placement
+          </Button>
+        </li>
+        <li className="py-2 lg:py-0">
+          <Button
+            className={`${path === '/training' ? 'active-link' : ''} font-medium text-lg px-5 no-underline hover:underline`}
+            type="link"
+            href="/training"
+          >
+            Training
+          </Button>
+        </li>
         <li>
           <Button
             className="font-medium text-lg mx-auto ml-3 px-6 py-2 bg-theme-purple text-white rounded-full border-2 border-theme-purple hover:bg-dark-theme-purple  transition duration-200"

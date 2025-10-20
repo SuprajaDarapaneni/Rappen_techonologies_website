@@ -9,6 +9,8 @@ import { Helmet } from 'react-helmet';
 import LandingPage from 'pages/LandingPage';
 import ProjectPage from 'pages/ProjectPage';
 import NotFoundPage from 'pages/NotFoundPage';
+import Placement from 'pages/PlacementPage';
+import Training from 'pages/TrainingPage';
 
 import { ProjectDetailPage } from 'pages/ProjectDetailPage';
 import { DiscussProjectPage } from 'pages/DiscussProjectPage';
@@ -33,6 +35,8 @@ function App() {
         <Route exact path="/discuss-project" element={<DiscussProjectPage />} />
         <Route path="*" element={<Navigate to="/not-found" />} />
         <Route path="/not-found" element={<NotFoundPage />} />
+        <Route path="/training" element={<Training />} />
+        <Route path="/placement" element={<Placement />} />
       </Routes>
     </>
   );
